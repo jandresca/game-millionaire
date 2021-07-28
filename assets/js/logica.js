@@ -22,7 +22,7 @@ let pregunta7 = document.getElementById("pregunta7");
 let pregunta8 = document.getElementById("pregunta8");
 let pregunta9 = document.getElementById("pregunta9");
 let pregunta10 = document.getElementById("pregunta10");*/
-//inicializo las preguntas en estado none para que no se vean ¿
+//inicializo las preguntas en estado none para que no se vean 
 pregunta2.style.display = "none";
 pregunta3.style.display = "none";
 /*pregunta4.style.display = "none";
@@ -41,14 +41,13 @@ const f = ()=>{
 }
 
 const emergente = () => {
-  a = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
-  a1 = a.toLowerCase();
-  correcta=1;
-  if (a1 === "si") alert("perfecto esta es la adecuada");
+  let correcta1 = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
+  correcta = correcta1.toLowerCase();
+  if (correcta === "si") alert("perfecto esta es la adecuada");
 };
 
 
-
+//pregunta 1
 a.onclick = function () {
   emergente();
   puntos.innerHTML="1000";
@@ -68,7 +67,7 @@ d.onclick = function () {
   f();
 };
 
-
+//pregunta 2
 a2.onclick = function () {
   emergente();
   puntos.innerHTML="2000";
@@ -78,15 +77,17 @@ a2.onclick = function () {
 };
 
 b2.onclick = function () {
+  puntos.innerHTML="";
   f();
 };
 
 c2.onclick = function () {
+  puntos.innerHTML="";
   f();
 };
 
 d2.onclick = function () {
+  puntos.innerHTML="";
   f();
 };
-
 
