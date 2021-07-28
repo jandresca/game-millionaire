@@ -8,6 +8,13 @@ let a2 = document.getElementById("a2");
 let b2 = document.getElementById("b2");
 let c2= document.getElementById("c2");
 let d2 = document.getElementById("d2");
+
+let a3 = document.getElementById("a3");
+let b3 = document.getElementById("b3");
+let c3= document.getElementById("c3");
+let d3= document.getElementById("d3");
+
+
 //puntos
 let puntos = document.getElementById("puntos");
 //preguntas
@@ -87,6 +94,31 @@ c2.onclick = function () {
 };
 
 d2.onclick = function () {
+  puntos.innerHTML="";
+  f();
+};
+
+//pregunta 3
+c3.onclick = function () {
+  emergente();
+  puntos.innerHTML="3000";
+  pregunta3.style.display = "none";
+  pregunta1.style.display = "none";
+  pregunta2.style.display = "none";
+  pregunta4.style.display = "none";
+};
+
+a3.onclick = function () {
+  puntos.innerHTML="";
+  f();
+};
+
+b3.onclick = function () {
+  puntos.innerHTML="";
+  f();
+};
+
+d3.onclick = function () {
   puntos.innerHTML="";
   f();
 };
