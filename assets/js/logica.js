@@ -120,28 +120,21 @@ const f = () => {
 };
 
 const emergente = () => {
-  let pregunta = prompt(
-    "Estas seguro que esta es la respuesta\n (solo si o no)"
-  );
-
+  let pregunta = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
   while (pregunta !== "si" && pregunta !== "no") {
     alert("por favor escriba si o no");
     pregunta = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
   }
-
   correcta = pregunta.toLowerCase();
-  correcta === "si" ? alert("perfecto esta es la adecuada") : "";
+  return correcta;
 };
 
 ganados.innerHTML = puntuacion[0];
 puntos.innerHTML = puntuacion[18];
 //pregunta 1
 a.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[0];
-  ganados.innerHTML = puntuacion[1];
-  pregunta2.style.display = "block";
-  pregunta1.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[0]), (ganados.innerHTML = puntuacion[1]), (pregunta2.style.display = "block"), (pregunta1.style.display = "none");
 };
 
 b.onclick = function () {
@@ -188,13 +181,9 @@ d.onclick = function () {
 
 //pregunta 2
 a2.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[0 + 2];
-  ganados.innerHTML = puntuacion[2];
-  pregunta3.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-};
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[2]), (ganados.innerHTML = puntuacion[2]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "block");
+}
 
 b2.onclick = function () {
   pregunta = f();
@@ -282,13 +271,8 @@ c3.onclick = function () {
 };
 
 d3.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[5];
-  ganados.innerHTML = puntuacion[3];
-  pregunta4.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[5]), (ganados.innerHTML = puntuacion[3]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "block");
 };
 
 //pregunta 4
@@ -321,14 +305,8 @@ b4.onclick = function () {
 };
 
 c4.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[9];
-  ganados.innerHTML = puntuacion[4];
-  pregunta5.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[9]), (ganados.innerHTML = puntuacion[4]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "block");
 };
 
 d4.onclick = function () {
@@ -361,15 +339,8 @@ a5.onclick = function () {
 };
 
 b5.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[10];
-  ganados.innerHTML = puntuacion[5];
-  pregunta6.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[10]), (ganados.innerHTML = puntuacion[5]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "block");
 };
 
 c5.onclick = function () {
@@ -430,16 +401,8 @@ b6.onclick = function () {
 };
 
 c6.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[11];
-  ganados.innerHTML = puntuacion[6];
-  pregunta7.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[11]), (ganados.innerHTML = puntuacion[6]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "block");
 };
 
 d6.onclick = function () {
@@ -486,17 +449,8 @@ b7.onclick = function () {
 };
 
 c7.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[12];
-  ganados.innerHTML = puntuacion[7];
-  pregunta8.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
-  pregunta7.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[12]), (ganados.innerHTML = puntuacion[7]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "block");
 };
 
 d7.onclick = function () {
@@ -557,35 +511,15 @@ c8.onclick = function () {
 };
 
 d8.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[13];
-  ganados.innerHTML = puntuacion[8];
-  pregunta9.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
-  pregunta7.style.display = "none";
-  pregunta8.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[13]), (ganados.innerHTML = puntuacion[8]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "block");
 };
 
 //pregunta 9
 a9.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[14];
-  ganados.innerHTML = puntuacion[9];
-  pregunta10.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
-  pregunta7.style.display = "none";
-  pregunta8.style.display = "none";
-  pregunta9.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[14]), (ganados.innerHTML = puntuacion[9]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "block");
+
 };
 
 b9.onclick = function () {
@@ -646,20 +580,8 @@ a10.onclick = function () {
 };
 
 b10.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[15];
-  ganados.innerHTML = puntuacion[19];
-  pregunta11.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
-  pregunta7.style.display = "none";
-  pregunta8.style.display = "none";
-  pregunta9.style.display = "none";
-  pregunta10.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[15]), (ganados.innerHTML = puntuacion[19]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "none",pregunta11.style.display = "block");
 };
 
 c10.onclick = function () {
@@ -734,21 +656,8 @@ c11.onclick = function () {
 };
 
 d11.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[16];
-  ganados.innerHTML = puntuacion[20];
-  pregunta12.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
-  pregunta7.style.display = "none";
-  pregunta8.style.display = "none";
-  pregunta9.style.display = "none";
-  pregunta10.style.display = "none";
-  pregunta11.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[16]), (ganados.innerHTML = puntuacion[20]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "none",pregunta11.style.display = "none",pregunta12.style.display = "block");
 };
 
 //pregunta 12
@@ -781,23 +690,8 @@ b12.onclick = function () {
 };
 
 c12.onclick = function () {
-  emergente();
-  puntos.innerHTML = puntuacion[17];
-  nombre1.innerHTML = "<b>" + nombre + "</b>";
-  nombre1.style.display = "block";
-  final.style.display = "block";
-  pregunta1.style.display = "none";
-  pregunta2.style.display = "none";
-  pregunta3.style.display = "none";
-  pregunta4.style.display = "none";
-  pregunta5.style.display = "none";
-  pregunta6.style.display = "none";
-  pregunta7.style.display = "none";
-  pregunta8.style.display = "none";
-  pregunta9.style.display = "none";
-  pregunta10.style.display = "none";
-  pregunta11.style.display = "none";
-  pregunta12.style.display = "none";
+  correcta = emergente();
+  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[17]),nombre1.innerHTML = "<b>" + nombre + "</b>",nombre1.style.display = "block",  final.style.display = "block",(pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "none",pregunta11.style.display = "none",pregunta12.style.display = "none");
 };
 
 d12.onclick = function () {
