@@ -18,8 +18,6 @@ let a4 = document.getElementById("a4");
 let b4 = document.getElementById("b4");
 let c4 = document.getElementById("c4");
 let d4 = document.getElementById("d4");
-<<<<<<< HEAD
-=======
 
 let a5 = document.getElementById("a5");
 let b5 = document.getElementById("b5");
@@ -31,7 +29,6 @@ let b6 = document.getElementById("b6");
 let c6 = document.getElementById("c6");
 let d6 = document.getElementById("d6");
 
->>>>>>> jaime
 //puntos
 let puntos = document.getElementById("puntos");
 let ganados = document.getElementById("ganados");
@@ -45,15 +42,9 @@ let pregunta1 = document.getElementById("pregunta1");
 let pregunta2 = document.getElementById("pregunta2");
 let pregunta3 = document.getElementById("pregunta3");
 let pregunta4 = document.getElementById("pregunta4");
-<<<<<<< HEAD
-/*
-let pregunta5 = document.getElementById("pregunta5");
-let pregunta6 = document.getElementById("pregunta6");
-=======
 let pregunta5 = document.getElementById("pregunta5");
 let pregunta6 = document.getElementById("pregunta6");
 /*
->>>>>>> jaime
 let pregunta7 = document.getElementById("pregunta7");
 let pregunta8 = document.getElementById("pregunta8");
 let pregunta9 = document.getElementById("pregunta9");
@@ -62,15 +53,9 @@ let pregunta10 = document.getElementById("pregunta10");*/
 pregunta2.style.display = "none";
 pregunta3.style.display = "none";
 pregunta4.style.display = "none";
-<<<<<<< HEAD
-/*
-pregunta5.style.display = "none";
-pregunta6.style.display = "none";
-=======
 pregunta5.style.display = "none";
 pregunta6.style.display = "none";
 /*
->>>>>>> jaime
 pregunta7.style.display = "none";
 pregunta8.style.display = "none";
 pregunta9.style.display = "none";
@@ -233,8 +218,6 @@ d4.onclick = function () {
     ? (ganados.innerHTML = puntuacion[5] + location.reload())
     : "";
 };
-<<<<<<< HEAD
-=======
 
 //pregunta 5
 a5.onclick = function () {
@@ -300,4 +283,3 @@ d6.onclick = function () {
   pregunta6.style.display = "none";
 };
 
->>>>>>> jaime
