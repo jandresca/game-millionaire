@@ -1,3 +1,9 @@
+const letsPlayAudio = document.getElementById("lets-play");
+const easyAudio = document.getElementById("easy");
+const wrongAnswerAudio = document.getElementById("wrong-answer");
+const correctAnswerAudio = document.getElementById("correct-answer");
+
+
 //opciones
 let a = document.getElementById("a");
 let b = document.getElementById("b");
@@ -81,8 +87,10 @@ let pregunta11 = document.getElementById("pregunta11");
 let pregunta12 = document.getElementById("pregunta12");
 let final = document.getElementById("final");
 let nombre1 = document.getElementById("nombre1");
+let start = document.getElementById("start");
 
 //inicializo las preguntas en estado none para que no se vean
+pregunta1.style.display = "none";
 pregunta2.style.display = "none";
 pregunta3.style.display = "none";
 pregunta4.style.display = "none";
@@ -97,613 +105,773 @@ pregunta12.style.display = "none";
 final.style.display = "none";
 nombre1.style.display = "none";
 
-let nombre = prompt(
-  "Bienvenido al juego quien quiere ser millonario por favor ingrese su nombre: "
-);
-while (nombre == null || nombre === "") {
-  alert("por favor ingresar el nombre para poder iniciar con el cuestionario");
-  nombre = prompt(
+let fnStart = () => {
+  start.style.display = "none";
+  easyAudio.play();
+  easyAudio.volume = 0.3;
+  let nombre = prompt(
     "Bienvenido al juego quien quiere ser millonario por favor ingrese su nombre: "
   );
-}
-
-const f = () => {
-  let pregunta = prompt(
-    "Estas seguro que esta es la respuesta\n (solo si o no)"
-  );
-
-  while (pregunta !== "si" && pregunta !== "no") {
-    alert("por favor escriba si o no");
-    pregunta = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
+  while (nombre == null || nombre === "") {
+    alert(
+      "por favor ingresar el nombre para poder iniciar con el cuestionario"
+    );
+    nombre = prompt(
+      "Bienvenido al juego quien quiere ser millonario por favor ingrese su nombre: "
+    );
   }
-  return pregunta;
+
+  pregunta1.style.display = "block";
+  const f = () => {
+    // start audio
+    easyAudio.pause();
+    letsPlayAudio.play();
+    letsPlayAudio.volume = 0.3;
+    let pregunta = prompt(
+      "Estas seguro que esta es la respuesta\n (solo si o no)"
+    );
+
+    while (pregunta !== "si" && pregunta !== "no") {
+      alert("por favor escriba si o no");
+      pregunta = prompt(
+        "Estas seguro que esta es la respuesta\n (solo si o no)"
+      );
+    }
+    wrongAnswerAudio.play();
+    wrongAnswerAudio.volume = 0.3;
+    easyAudio.play();
+    return pregunta;
+  };
+
+  const emergente = () => {
+    // start audio
+    easyAudio.pause();
+    letsPlayAudio.play();
+    letsPlayAudio.volume = 0.3;
+
+    let pregunta = prompt(
+      "Estas seguro que esta es la respuesta\n (solo si o no)"
+    );
+    while (pregunta !== "si" && pregunta !== "no") {
+      alert("por favor escriba si o no");
+      pregunta = prompt(
+        "Estas seguro que esta es la respuesta\n (solo si o no)"
+      );
+    }
+    correctAnswerAudio.play();
+    correctAnswerAudio.volume = 0.3;
+    easyAudio.play();
+    correcta = pregunta.toLowerCase();
+
+    return correcta;
+  };
+
+  ganados.innerHTML = puntuacion[0];
+  puntos.innerHTML = puntuacion[18];
+  //pregunta 1
+  a.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[0]),
+        (ganados.innerHTML = puntuacion[1]),
+        (pregunta2.style.display = "block"),
+        (pregunta1.style.display = "none");
+  };
+
+  b.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[18] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[18] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[18] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 2
+  a2.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[2]),
+        (ganados.innerHTML = puntuacion[2]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "block"));
+  };
+
+  b2.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[0] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c2.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[0] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d2.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[0] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 3
+  a3.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[2] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b3.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[2] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c3.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[2] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d3.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[5]),
+        (ganados.innerHTML = puntuacion[3]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "block"));
+  };
+
+  //pregunta 4
+  a4.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[5] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b4.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[5] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c4.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[9]),
+        (ganados.innerHTML = puntuacion[4]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "block"));
+  };
+
+  d4.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[5] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 5
+  a5.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[9] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b5.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[10]),
+        (ganados.innerHTML = puntuacion[5]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "block"));
+  };
+
+  c5.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[9] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d5.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[9] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 6
+  a6.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[10] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b6.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[10] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c6.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[11]),
+        (ganados.innerHTML = puntuacion[6]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "block"));
+  };
+
+  d6.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[10] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 7
+  a7.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[11] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b7.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[11] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c7.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[12]),
+        (ganados.innerHTML = puntuacion[7]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "none"),
+        (pregunta8.style.display = "block"));
+  };
+
+  d7.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[11] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 8
+  a8.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[12] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b8.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[12] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c8.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[12] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d8.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[13]),
+        (ganados.innerHTML = puntuacion[8]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "none"),
+        (pregunta8.style.display = "none"),
+        (pregunta9.style.display = "block"));
+  };
+
+  //pregunta 9
+  a9.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[14]),
+        (ganados.innerHTML = puntuacion[9]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "none"),
+        (pregunta8.style.display = "none"),
+        (pregunta9.style.display = "none"),
+        (pregunta10.style.display = "block"));
+  };
+
+  b9.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[13] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c9.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[13] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d9.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[13] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 10
+  a10.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[14] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b10.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[15]),
+        (ganados.innerHTML = puntuacion[19]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "none"),
+        (pregunta8.style.display = "none"),
+        (pregunta9.style.display = "none"),
+        (pregunta10.style.display = "none"),
+        (pregunta11.style.display = "block"));
+  };
+
+  c10.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[14] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d10.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[14] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  //pregunta 11
+  a11.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[15] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b11.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[15] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c11.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[15] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  d11.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[16]),
+        (ganados.innerHTML = puntuacion[20]),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "none"),
+        (pregunta8.style.display = "none"),
+        (pregunta9.style.display = "none"),
+        (pregunta10.style.display = "none"),
+        (pregunta11.style.display = "none"),
+        (pregunta12.style.display = "block"));
+  };
+
+  //pregunta 12
+  a12.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[16] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  b12.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[16] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
+
+  c12.onclick = function () {
+    correcta = emergente();
+    if (correcta === "si")
+      alert("perfecto " + nombre + " esta es la adecuada"),
+        (puntos.innerHTML = puntuacion[17]),
+        (nombre1.innerHTML = "<b>" + nombre + "</b>"),
+        (nombre1.style.display = "block"),
+        (final.style.display = "block"),
+        (pregunta2.style.display = "none"),
+        ((pregunta1.style.display = "none"),
+        (pregunta3.style.display = "none"),
+        (pregunta4.style.display = "none"),
+        (pregunta5.style.display = "none"),
+        (pregunta6.style.display = "none"),
+        (pregunta7.style.display = "none"),
+        (pregunta8.style.display = "none"),
+        (pregunta9.style.display = "none"),
+        (pregunta10.style.display = "none"),
+        (pregunta11.style.display = "none"),
+        (pregunta12.style.display = "none"));
+  };
+
+  d12.onclick = function () {
+    pregunta = f();
+    pregunta === "si"
+      ? (ganados.innerHTML =
+          alert(
+            "lo siento " +
+              nombre +
+              " perdiste y quedaste con " +
+              puntuacion[16] +
+              " puntos"
+          ) + location.reload())
+      : "";
+  };
 };
 
-const emergente = () => {
-  let pregunta = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
-  while (pregunta !== "si" && pregunta !== "no") {
-    alert("por favor escriba si o no");
-    pregunta = prompt("Estas seguro que esta es la respuesta\n (solo si o no)");
-  }
-  correcta = pregunta.toLowerCase();
-  return correcta;
-};
-
-ganados.innerHTML = puntuacion[0];
-puntos.innerHTML = puntuacion[18];
-//pregunta 1
-a.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[0]), (ganados.innerHTML = puntuacion[1]), (pregunta2.style.display = "block"), (pregunta1.style.display = "none");
-};
-
-b.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[18] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[18] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[18] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 2
-a2.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[2]), (ganados.innerHTML = puntuacion[2]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "block");
-}
-
-b2.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[0] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c2.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[0] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d2.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[0] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 3
-a3.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[2] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b3.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[2] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c3.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[2] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d3.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[5]), (ganados.innerHTML = puntuacion[3]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "block");
-};
-
-//pregunta 4
-a4.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[5] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b4.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[5] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c4.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[9]), (ganados.innerHTML = puntuacion[4]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "block");
-};
-
-d4.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[5] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 5
-a5.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[9] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b5.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[10]), (ganados.innerHTML = puntuacion[5]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "block");
-};
-
-c5.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[9] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d5.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[9] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 6
-a6.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[10] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b6.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[10] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c6.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[11]), (ganados.innerHTML = puntuacion[6]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "block");
-};
-
-d6.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[10] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 7
-a7.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[11] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b7.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[11] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c7.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[12]), (ganados.innerHTML = puntuacion[7]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "block");
-};
-
-d7.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[11] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 8
-a8.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[12] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b8.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[12] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c8.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[12] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d8.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[13]), (ganados.innerHTML = puntuacion[8]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "block");
-};
-
-//pregunta 9
-a9.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[14]), (ganados.innerHTML = puntuacion[9]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "block");
-
-};
-
-b9.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[13] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c9.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[13] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d9.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[13] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 10
-a10.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[14] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b10.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[15]), (ganados.innerHTML = puntuacion[19]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "none",pregunta11.style.display = "block");
-};
-
-c10.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[14] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d10.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[14] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-//pregunta 11
-a11.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[15] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b11.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[15] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c11.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[15] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-d11.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[16]), (ganados.innerHTML = puntuacion[20]), (pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "none",pregunta11.style.display = "none",pregunta12.style.display = "block");
-};
-
-//pregunta 12
-a12.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[16] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-b12.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[16] +
-            " puntos"
-        ) + location.reload())
-    : "";
-};
-
-c12.onclick = function () {
-  correcta = emergente();
-  if(correcta==="si") alert("perfecto " + nombre + " esta es la adecuada"), (puntos.innerHTML = puntuacion[17]),nombre1.innerHTML = "<b>" + nombre + "</b>",nombre1.style.display = "block",  final.style.display = "block",(pregunta2.style.display = "none"), (pregunta1.style.display = "none",pregunta3.style.display = "none",pregunta4.style.display = "none",pregunta5.style.display = "none",pregunta6.style.display = "none",pregunta7.style.display = "none",pregunta8.style.display = "none",pregunta9.style.display = "none",pregunta10.style.display = "none",pregunta11.style.display = "none",pregunta12.style.display = "none");
-};
-
-d12.onclick = function () {
-  pregunta = f();
-  pregunta === "si"
-    ? (ganados.innerHTML =
-        alert(
-          "lo siento " +
-            nombre +
-            " perdiste y quedaste con " +
-            puntuacion[16] +
-            " puntos"
-        ) + location.reload())
-    : "";
+start.onclick = function () {
+  fnStart();
 };
