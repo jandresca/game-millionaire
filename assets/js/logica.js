@@ -130,7 +130,9 @@ punt_A.style.display = "block";
   pregunta1.style.display = "block";
   const f = () => {
     // start audio
+	  letsPlayAudio.currentTime = 0;
     easyAudio.pause();
+    easyAudio.currentTime = 0;
     letsPlayAudio.play();
     letsPlayAudio.volume = 0.3;
     let pregunta = prompt(
@@ -143,15 +145,21 @@ punt_A.style.display = "block";
         "Estas seguro que esta es la respuesta\n (solo si o no)"
       );
     }
+    letsPlayAudio.pause();
+	  letsPlayAudio.currentTime = 0;
     wrongAnswerAudio.play();
     wrongAnswerAudio.volume = 0.3;
     easyAudio.play();
+    wrongAnswerAudio.pause=0;
+    wrongAnswerAudio.currentTime = 0;
     return pregunta;
   };
 
   const emergente = () => {
+	  letsPlayAudio.currentTime = 0;
     // start audio
     easyAudio.pause();
+    easyAudio.currentTime = 0;
     letsPlayAudio.play();
     letsPlayAudio.volume = 0.3;
 
@@ -164,11 +172,14 @@ punt_A.style.display = "block";
         "Estas seguro que esta es la respuesta\n (solo si o no)"
       );
     }
+    letsPlayAudio.pause();
+	  letsPlayAudio.currentTime = 0;
     correctAnswerAudio.play();
     correctAnswerAudio.volume = 0.3;
     easyAudio.play();
     correcta = pregunta.toLowerCase();
-
+    correctAnswerAudio.pause=0;
+    correctAnswerAudio.currentTime = 0;
     return correcta;
   };
 

@@ -5,6 +5,10 @@
 body{
   background-color: #071f5f;
 }
+.h3{
+  color: azure;
+  font-weight: 100;
+}
 /*Botones*/
 ::-moz-focus-inner {
   border: 0;
