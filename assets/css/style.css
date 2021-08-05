@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+body{
+  background-color: #071f5f;
+}
+/*Botones*/
 ::-moz-focus-inner {
   border: 0;
 }

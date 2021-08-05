@@ -3,6 +3,8 @@ const easyAudio = document.getElementById("easy");
 const wrongAnswerAudio = document.getElementById("wrong-answer");
 const correctAnswerAudio = document.getElementById("correct-answer");
 
+let punt_A = document.getElementById("punt_A");
+let punt = document.getElementById("punt");
 
 //opciones
 let a = document.getElementById("a");
@@ -104,9 +106,13 @@ pregunta11.style.display = "none";
 pregunta12.style.display = "none";
 final.style.display = "none";
 nombre1.style.display = "none";
+punt.style.display = "none";
+punt_A.style.display = "none";
 
 let fnStart = () => {
   start.style.display = "none";
+  punt.style.display = "block";
+punt_A.style.display = "block";
   easyAudio.play();
   easyAudio.volume = 0.3;
   let nombre = prompt(
