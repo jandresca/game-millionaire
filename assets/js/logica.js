@@ -7,25 +7,13 @@ let punt_A = document.getElementById("punt_A");
 let punt = document.getElementById("punt");
 
 //opciones
-let a = document.getElementById("a");
-let b = document.getElementById("b");
-let c = document.getElementById("c");
-let d = document.getElementById("d");
+let a = document.getElementById("a"); let b = document.getElementById("b"); let c = document.getElementById("c"); let d = document.getElementById("d");
 
-let a2 = document.getElementById("a2");
-let b2 = document.getElementById("b2");
-let c2 = document.getElementById("c2");
-let d2 = document.getElementById("d2");
+let a2 = document.getElementById("a2"); let b2 = document.getElementById("b2"); let c2 = document.getElementById("c2"); let d2 = document.getElementById("d2");
 
-let a3 = document.getElementById("a3");
-let b3 = document.getElementById("b3");
-let c3 = document.getElementById("c3");
-let d3 = document.getElementById("d3");
+let a3 = document.getElementById("a3"); let b3 = document.getElementById("b3"); let c3 = document.getElementById("c3"); let d3 = document.getElementById("d3");
 
-let a4 = document.getElementById("a4");
-let b4 = document.getElementById("b4");
-let c4 = document.getElementById("c4");
-let d4 = document.getElementById("d4");
+let a4 = document.getElementById("a4"); let b4 = document.getElementById("b4"); let c4 = document.getElementById("c4"); let d4 = document.getElementById("d4");
 
 let a5 = document.getElementById("a5");
 let b5 = document.getElementById("b5");
@@ -112,7 +100,7 @@ punt_A.style.display = "none";
 let fnStart = () => {
   start.style.display = "none";
   punt.style.display = "block";
-punt_A.style.display = "block";
+  punt_A.style.display = "block";
   easyAudio.play();
   easyAudio.volume = 0.3;
   let nombre = prompt(
@@ -182,9 +170,26 @@ punt_A.style.display = "block";
     correctAnswerAudio.currentTime = 0;
     return correcta;
   };
+  
 
   ganados.innerHTML = puntuacion[0];
   puntos.innerHTML = puntuacion[18];
+
+  function preguntaas(posicion) {
+     pregunta = f();
+     console.log(pregunta);
+     pregunta === "si"
+     ? (ganados.innerHTML =
+         alert(
+           "lo siento " +
+             nombre +
+             " perdiste y quedaste con " +
+             puntuacion[posicion] +
+             " puntos"
+         ) + location.reload())
+     : "";
+   }
+  
   //pregunta 1
   a.onclick = function () {
     correcta = emergente();
@@ -195,49 +200,21 @@ punt_A.style.display = "block";
         (pregunta2.style.display = "block"),
         (pregunta1.style.display = "none");
   };
-
+  
   b.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[18] +
-              " puntos"
-          ) + location.reload())
-      : "";
+   preguntaas(18);
   };
 
   c.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[18] +
-              " puntos"
-          ) + location.reload())
-      : "";
+      preguntaas(18);
   };
 
   d.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[18] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(18);
   };
 
+  
+  
   //pregunta 2
   a2.onclick = function () {
     correcta = emergente();
@@ -251,88 +228,28 @@ punt_A.style.display = "block";
   };
 
   b2.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[0] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(0);
   };
 
   c2.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[0] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(0);
   };
 
   d2.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[0] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(0);
   };
 
   //pregunta 3
   a3.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[2] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(2);
   };
 
   b3.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[2] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(2);
   };
 
   c3.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[2] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(2);
   };
 
   d3.onclick = function () {
@@ -349,31 +266,11 @@ punt_A.style.display = "block";
 
   //pregunta 4
   a4.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[5] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(5);
   };
 
   b4.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[5] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(5);
   };
 
   c4.onclick = function () {
@@ -390,32 +287,12 @@ punt_A.style.display = "block";
   };
 
   d4.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[5] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(5);
   };
 
   //pregunta 5
   a5.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[9] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(9);
   };
 
   b5.onclick = function () {
@@ -433,60 +310,20 @@ punt_A.style.display = "block";
   };
 
   c5.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[9] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(9);
   };
 
   d5.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[9] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(9);
   };
 
   //pregunta 6
   a6.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[10] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(10);
   };
 
   b6.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[10] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(10);
   };
 
   c6.onclick = function () {
@@ -505,46 +342,16 @@ punt_A.style.display = "block";
   };
 
   d6.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[10] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(10);
   };
 
   //pregunta 7
   a7.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[11] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(11);
   };
 
   b7.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[11] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(11);
   };
 
   c7.onclick = function () {
@@ -564,60 +371,20 @@ punt_A.style.display = "block";
   };
 
   d7.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[11] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(11);
   };
 
   //pregunta 8
   a8.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[12] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(12);
   };
 
   b8.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[12] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(12);
   };
 
   c8.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[12] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(12);
   };
 
   d8.onclick = function () {
@@ -657,60 +424,20 @@ punt_A.style.display = "block";
   };
 
   b9.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[13] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(13);
   };
 
   c9.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[13] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(13);
   };
 
   d9.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[13] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(13);
   };
 
   //pregunta 10
   a10.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[14] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(14);
   };
 
   b10.onclick = function () {
@@ -733,74 +460,24 @@ punt_A.style.display = "block";
   };
 
   c10.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[14] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(14);
   };
 
   d10.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[14] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(14);
   };
 
   //pregunta 11
   a11.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[15] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(15);
   };
 
   b11.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[15] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(15);
   };
 
   c11.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[15] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(15);
   };
 
   d11.onclick = function () {
@@ -825,31 +502,11 @@ punt_A.style.display = "block";
 
   //pregunta 12
   a12.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[16] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(16);
   };
 
   b12.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[16] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    preguntaas(16);
   };
 
   c12.onclick = function () {
@@ -875,17 +532,8 @@ punt_A.style.display = "block";
   };
 
   d12.onclick = function () {
-    pregunta = f();
-    pregunta === "si"
-      ? (ganados.innerHTML =
-          alert(
-            "lo siento " +
-              nombre +
-              " perdiste y quedaste con " +
-              puntuacion[16] +
-              " puntos"
-          ) + location.reload())
-      : "";
+    
+    preguntaas(16);
   };
 };
 
